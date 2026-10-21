@@ -20,13 +20,27 @@ namespace Biblioteka
     public partial class BibliotekaGlav : Window
     {
         private readonly Entities.Readers _currentUser;
-        public BibliotekaGlav()
+        public BibliotekaGlav(Entities.Readers user)
         {
             InitializeComponent();
+            _currentUser = user;
+            AppFrame.Navigate(new BooksPage(_currentUser));
+
         }
-        public  BibliotekaGlav(Entities.Readers currentUser)
+
+
+        private void MenuItem_Clikc(object sender, RoutedEventArgs e)
         {
-            _currentUser = currentUser;
+            MenuItem menuitem = sender as MenuItem;
+            if (menuitem == null) return;
+            string pageTag = menuitem.Tag.ToString();
+                if (pageTag == "ProfilPage")
+                AppFrame.Navigate(new ProfilPage(_currentUser));
+                else if (pageTag == "LoansPage")
+                    AppFrame.Navigate(new LoansPage(_currentUser));
+                else
+                    AppFrame.Navigate(new BooksPage(_currentUser));
+            
         }
     }
 }

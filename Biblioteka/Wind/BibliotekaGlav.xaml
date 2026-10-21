@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biblioteka"
         mc:Ignorable="d"
-        Title="Библиотека" Height="450" Width="800">
+        Title="Библиотека" ResizeMode="NoResize" WindowState="Maximized" Height="337" Width="622">
     <Grid>
         <DockPanel LastChildFill="True" >
             <StackPanel DockPanel.Dock="Top" Background="#FF3BD1B6" Orientation="Horizontal">
@@ -13,9 +13,9 @@
             </StackPanel>
 
             <Menu DockPanel.Dock="Top" VerticalAlignment="Center" Padding="10">
-                <MenuItem Header="_Книги" Tag="/BooksPage.xaml"/>
-                <MenuItem Header="Ваши выдачи" Tag="/LoansPage.xaml"/>
-                <MenuItem Header="Профиль" Tag="/ProfilPage.xaml"></MenuItem>
+                <MenuItem Header="_Книги" Tag="BooksPage" Click="MenuItem_Clikc"/>
+                <MenuItem Header="Выдачи" Tag="LoansPage" Click="MenuItem_Clikc"/>
+                <MenuItem Header="Профиль" Tag="ProfilPage" Click="MenuItem_Clikc"></MenuItem>
             </Menu>
             <Frame Name="AppFrame" NavigationUIVisibility="Hidden" Margin="10 0 10 10"/>
         </DockPanel>

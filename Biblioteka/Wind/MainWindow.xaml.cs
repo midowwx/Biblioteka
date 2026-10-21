@@ -32,6 +32,7 @@ namespace Biblioteka
             var registerWin = new Window1();
             registerWin.Owner = this;
             registerWin.ShowDialog();
+            this.IsEnabled = true;
 
         }
 
@@ -54,7 +55,7 @@ namespace Biblioteka
                     MessageBox.Show("Неверный пароль!");
                 else
                 {
-                    MessageBox.Show($"Добро пожаловать, {user.Name} {user.LastName}. Роль: #{user.Rol}", " Вход выполнен", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Добро пожаловать, {user.Name} {user.LastName}.");
 
                     var mainApp = new BibliotekaGlav(user);
                     mainApp.Show();

@@ -14,36 +14,37 @@
                    FontWeight="Bold" 
                    Margin="0,0,0,20"/>
 
-        <!-- ListView для отображения списка -->
-        <ListView ItemsSource="{Binding}">
+        <ListView ItemsSource="{Binding}" Name="LL">
             <ListView.View>
                 <GridView>
-                    <!-- Колонка ID -->
                     <GridViewColumn Header="ID" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Id}" 
+                                <TextBlock Text="{Binding LoanID}" 
                                            HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-
-                    <!-- Колонка Дата выдачи -->
                     <GridViewColumn Header="Дата выдачи" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding LoanDate, StringFormat=d}" 
+                                <TextBlock Text="{Binding Date, StringFormat=d}" 
                                            HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-
-                    <!-- Колонка Название книги -->
                     <GridViewColumn Header="Название книги" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding BookTitle}" 
                                            Padding="5,0,0,0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Читатель" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Names}" HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

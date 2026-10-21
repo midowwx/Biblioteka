@@ -35,10 +35,11 @@ namespace Biblioteka
             if (string.IsNullOrEmpty(name)) {MessageBox.Show("Имя обязательно."); return; }
             if (string.IsNullOrEmpty(lastName)) {MessageBox.Show("Фамилия обязательна."); return; }
             if (string.IsNullOrEmpty(login)){ MessageBox.Show("Логин обязателен."); return; }
+            if (string.IsNullOrEmpty(password)) { MessageBox.Show("Пароль обязателен."); return; }
             try
             {
-                var user = App.Context.Readers.FirstOrDefault(r => r.Login == login);
-            if (user != null)
+                var user = App.Context.Readers.Any(r => r.Login == login);
+            if (user)
                 {MessageBox.Show("Такой логин уже занят!"); return; }
             var newReader = new  Entities.Readers
             {

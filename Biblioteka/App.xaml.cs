@@ -17,6 +17,7 @@ namespace Biblioteka
     public partial class App : Application
     {
         public static Entities.LibreryEntities Context { get; } = new Entities.LibreryEntities();
+
     }
     
 }

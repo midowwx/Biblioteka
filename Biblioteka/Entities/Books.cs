@@ -23,7 +23,7 @@ namespace Biblioteka.Entities
         public int BookID { get; set; }
         public string Title { get; set; }
         public int AuthorID { get; set; }
-        public int CategoryID { get; set; }
+        public Nullable<int> CategoryID { get; set; }
         public Nullable<System.DateTime> DataPublic { get; set; }
         public byte[] Photo { get; set; }
     

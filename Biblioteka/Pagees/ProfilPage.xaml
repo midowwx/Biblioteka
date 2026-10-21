@@ -13,38 +13,30 @@
         <TextBlock Text="Профиль пользователя" FontSize="24" FontWeight="Bold" Margin="0,0,0,30"/>
             </StackPanel>
 
-            <!-- StackPanel выстраивает элементы строго друг под другом -->
         <StackPanel Margin="0,47,0,0">
 
-            <!-- Имя -->
             <TextBlock Text="Имя:" FontWeight="Bold" Margin="0,0,0,5"/>
-            <TextBlock Text="{Binding FirstName}" Margin="0,0,0,15"/>
+            <TextBlock Text="{Binding Name}" Margin="0,0,0,15"/>
 
-            <!-- Фамилия -->
             <TextBlock Text="Фамилия:" FontWeight="Bold" Margin="0,0,0,5"/>
             <TextBlock Text="{Binding LastName}" Margin="0,0,0,15"/>
 
-            <!-- Дата регистрации -->
             <TextBlock Text="Дата регистрации:" FontWeight="Bold" Margin="0,0,0,5"/>
-            <TextBlock Text="{Binding RegistrationDate, StringFormat=d}" Margin="0,0,0,25"/>
+            <TextBlock Text="{Binding DataRegistration, StringFormat=d}" Margin="0,0,0,25"/>
 
-            <!-- Разделительная линия -->
             <Border BorderThickness="0,1,0,0" BorderBrush="LightGray" Margin="0,0,0,25"/>
 
-            <!-- Телефон -->
             <TextBlock Text="Телефон:" FontWeight="Bold" Margin="0,0,0,5"/>
-            <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,15"/>
+            <TextBox Name="ph1" Text="{Binding NumberPhone, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,15"/>
+            <TextBlock Name="ph2" Text="{Binding NumberPhone}" Margin="0,0,0,15" Visibility="Hidden"/>
 
-            <!-- Email -->
             <TextBlock Text="Email:" FontWeight="Bold" Margin="0,0,0,5"/>
-            <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,30"/>
-
+            <TextBox Name="em1" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,30"/>
+            <TextBlock Name="em2" Text="{Binding Email}" Margin="0,0,0,15" Visibility="Hidden"/>
         </StackPanel>
 
-        <!-- Кнопка. Поскольку StackPanel занял всё вертикальное пространство, 
-             кнопку удобнее разместить в отдельном Grid внизу -->
         <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,20">
-            <Button Content="Сохранить" Width="100" Click="SaveButton_Click" Background="#FF3BD1B6" Foreground="White"/>
+            <Button Name="save" Content="Сохранить" Width="100" Click="Button_Click"  Background="#FF3BD1B6" Foreground="White"/>
         </Grid>
     </Grid>
 </Page>
