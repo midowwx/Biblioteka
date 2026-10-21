@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace Biblioteka
+{
+    /// <summary>
+    /// Логика взаимодействия для App.xaml
+    /// </summary>
+    public partial class App : Application
+    {
+        public static Entities.LibreryEntities Context { get; } = new Entities.LibreryEntities();
+    }
+    
+}
