@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Biblioteka
 {
@@ -16,8 +7,8 @@ namespace Biblioteka
     /// </summary>
     public partial class App : Application
     {
-        public static Entities.LibreryEntities Context { get; } = new Entities.LibreryEntities();
+        public static Entities.LibreryEntities Context { get; set; } = new Entities.LibreryEntities();
 
     }
-    
+
 }

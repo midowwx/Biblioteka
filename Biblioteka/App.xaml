@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:Biblioteka"
              StartupUri="Wind/MainWindow.xaml">
     <Application.Resources>
-       
         <Style x:Key="TableHeaderStyle" TargetType="TextBlock">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="14"/>
