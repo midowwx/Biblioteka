@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Biblioteka
 {
@@ -32,29 +20,29 @@ namespace Biblioteka
             string lastName = LastNameTextBox.Text.Trim();
             string login = LoginTextBox.Text.Trim();
             string password = PaswordTextBox.Password;
-            if (string.IsNullOrEmpty(name)) {MessageBox.Show("Имя обязательно."); return; }
-            if (string.IsNullOrEmpty(lastName)) {MessageBox.Show("Фамилия обязательна."); return; }
-            if (string.IsNullOrEmpty(login)){ MessageBox.Show("Логин обязателен."); return; }
+            if (string.IsNullOrEmpty(name)) { MessageBox.Show("Имя обязательно."); return; }
+            if (string.IsNullOrEmpty(lastName)) { MessageBox.Show("Фамилия обязательна."); return; }
+            if (string.IsNullOrEmpty(login)) { MessageBox.Show("Логин обязателен."); return; }
             if (string.IsNullOrEmpty(password)) { MessageBox.Show("Пароль обязателен."); return; }
             try
             {
                 var user = App.Context.Readers.Any(r => r.Login == login);
-            if (user)
-                {MessageBox.Show("Такой логин уже занят!"); return; }
-            var newReader = new  Entities.Readers
-            {
-                Name = name,
-                LastName = lastName,
-                Login = login,
-                Pasword = password,
-                Rol = 1
-            };
-            App.Context.Readers.Add(newReader);
+                if (user)
+                { MessageBox.Show("Такой логин уже занят!"); return; }
+                var newReader = new Entities.Readers
+                {
+                    Name = name,
+                    LastName = lastName,
+                    Login = login,
+                    Pasword = password,
+                    Rol = 1
+                };
+                App.Context.Readers.Add(newReader);
                 App.Context.SaveChanges();
                 this.Close();
-        }
+            }
             catch (DbUpdateException ex)
-        {
+            {
                 MessageBox.Show("Ошибка базы данных:\n" + ex.Message);
             }
         }

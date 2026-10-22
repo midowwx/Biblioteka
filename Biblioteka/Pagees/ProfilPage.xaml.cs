@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Biblioteka
 {
@@ -26,7 +15,7 @@ namespace Biblioteka
             InitializeComponent();
             _currentUser = user;
             this.DataContext = _currentUser;
-            if ( _currentUser.Email != null && _currentUser.NumberPhone == null)
+            if (_currentUser.Email != null && _currentUser.NumberPhone == null)
             {
 
                 em1.Visibility = Visibility.Hidden;
@@ -69,7 +58,7 @@ namespace Biblioteka
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка сохранения: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return; 
+                return;
             }
 
             MessageBox.Show("Данные успешно сохранены!", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);

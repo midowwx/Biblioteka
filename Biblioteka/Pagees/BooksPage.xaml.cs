@@ -1,21 +1,8 @@
 ﻿using Biblioteka.Entities;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Biblioteka
 {
@@ -52,18 +39,18 @@ namespace Biblioteka
 
         private void AddBookButtonCL(object sender, RoutedEventArgs e)
         {
-                Books book = new Books
-                {
-                   
-                    DataPublic = DateTime.Parse("22.02.1900"),
-                    Title = "книга",
-                    AuthorID = 5,
-                    CategoryID = 1
-                };
-                App.Context.Books.Add(book);
-                App.Context.SaveChanges();
-                LoadBooks();
-            }
+            Books book = new Books
+            {
+
+                DataPublic = DateTime.Parse("22.02.1900"),
+                Title = "книга",
+                AuthorID = 5,
+                CategoryID = 1
+            };
+            App.Context.Books.Add(book);
+            App.Context.SaveChanges();
+            LoadBooks();
+        }
         private void LoadBooks()
         {
             LV.ItemsSource = App.Context.Books
@@ -91,8 +78,8 @@ namespace Biblioteka
             {
                 Loans loan = new Loans
                 {
-                    BookID = bookToLoan.BookID, 
-                    ReaderID = _currentUser.ReaderID, 
+                    BookID = bookToLoan.BookID,
+                    ReaderID = _currentUser.ReaderID,
                     Date = DateTime.Now
                 };
                 App.Context.Loans.Add(loan);
